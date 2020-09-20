@@ -2,7 +2,7 @@
 Getting something to work "once" just isn't that hard. Getting software right is hard. It takes passion for the craft and the desire to be a professional. When software is done right, it requires fraction of the human resources to create and maintain. Changes are simple and rapid. Effort is minimized, and functionality and flexibility are maximized.
 Programming hell - interconnected systems that every change takes weeks and involves huge risk.
 
-# Chapter1:- What is Design and Architechture
+# Chapter 1:- What is Design and Architechture
 They are basically same. Architechture is used in context of something high level divorced from lower level details. Design usually imply structure and decisions at a lower level.  Low level details and high level decisions are both part of whole design. There is simply a continuum of decisions from the highest level to lowest levels
 
 ## Goal of software Architechture
@@ -44,8 +44,8 @@ Behavior is urgent while architecture is important. In order of priorities
 1. urgent and important
 2. not urgent and important
 3. Urgent and not important
-4. Not urgent and not important
+4. Not urgent and not important<br>
 The mistake is managers and developers often make is to elevate items in position 3 to position 1. Dilemma of software developers is business managers are not well equipped to evaluate the importance of architecture. Responsibility of software development team to assert the importance of architecture over the urgency of features.
 
 ## Fight for architecture
-A responsible software team fights for architecture. Its fight among development team, marketing team, management, operations for the best results for company.  Effective software development teams tackle the struggle head on. They consider themselves as equal stakeholder. It's a big part why you are hired. Features and functions need to be easily developed, easily modified and extended. 
+A responsible software team fights for architecture. Its fight among development team, marketing team, management, operations for the best results for company.  Effective software development teams tackle the struggle head on. They consider themselves as equal stakeholder. It's a big part why you are hired. Features and functions need to be easily developed, easily modified and extended.
