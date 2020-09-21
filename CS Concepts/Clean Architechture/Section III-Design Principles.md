@@ -71,13 +71,13 @@ Any subtype of usage of interface should not change behavior of higher applicati
     assert(r.area() == 10); # square would fail it
 
 ## Example LSP violation
-
 Consider a taxi aggregator which dispatches many taxi services. Now each company much conform to same REST interface. Now suppose there is a powerful taxi company which doesn't want to conform to your REST interface but provides its own interface. Simplest way to accomplish this goas would be to add an if. It would lead to mysterious errors and security breaches. Any future such incidence would force another if statement. This would be avoided by a configuration database:-
----
-URI             Dispatch format<br>
-Acme.com  /pickupAddress/%s/pickupTime/%s/dest/%s<br>
-_*.*              /pickupAddress/%s/pickupTime/%s/destination/%s
----
+
+| URI             |   Dispatch format |
+|---------------|:----------------------|
+|Acme.com   | /pickupAddress/%s/pickupTime/%s/dest/%s |
+| *.*              | /pickupAddress/%s/pickupTime/%s/destination/%s |
+
 
 Due to unsubstitutabilty of interfaces a complex mechanism has to be put in place.
 
@@ -113,7 +113,7 @@ DIP is most visible organizing principle in architecture diagrams. It will becom
 # Appendix
 - Dynamically vs statically types language- Statically typed programming languages do type checking at compile-time as opposed to run-time.
 
-# Image Source:-
+# Image Source
 1. component design https://ivohasablog.com/2018/03/25/solid-solutions/
 1. class design https://usermanual.wiki/Document/2017Clean20Architecture20A20Craftsmans20Guide20to2020Robert20C20Martin.1831389213/html
 1. abstract factory https://blog.heron.me/design-principles-b90e8a81a713
