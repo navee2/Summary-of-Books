@@ -43,7 +43,7 @@ _OO is ability through the use of polymorphism to gain absolute control over eve
 Variables in functional languages do not vary. All race conditions, deadlock conditions and concurrent update problems are due to mutable variables. No race condition can occur if no variable is updated. You can't have deadlocks without mutable locks.
 ## Segregation of  Mutability
 Segregate the application into mutable and immutable components. The immutable components perform their tasks in purely functional way without using any mutable variables. Transactional memory is required for mutable variables. It protects those variables with a transaction or retry-based scheme.Well structured applications will be segregated into those components that do not mutate variables than that do. Architects then push as much processing into the immutable components and drive as much code as possible out of those components that must allow mutation.
-## Even sourcing
+## Event sourcing
 Consider we need a banking application where we need balances of customer when deposit and withdrawal takes place(mutable component). If only transactions are stored no mutable variables will be required.
 _Event sourcing is a strategy wherein we store the transaction but not the state. When state is required, simply apply all the transactions_
 Shortcuts are possible. Save the state at particular frequency(midnight for bank balance). We need to execute transactions since midnight. Nothing ever get deleted or updated. Thus there is no concurrent update issue. This is way source code control system works.
