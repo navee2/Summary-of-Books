@@ -41,10 +41,10 @@ SRP is about functions and classes. At component level it becomes Common closure
 
 Consider a system that displays a financial summary on a web page. The data on the page is scrollable and negative numbers are rendered in red. Now there is new requirement that same information be turned into a report to be printed on a black and white printer. Negative numbers are now surrounded by parenthesis.
 By applying SRP we get following data flow:-
-
+<pre>
 financial data -----> financial analyzer ----> Financial Report Data----> web reporter<br>
                                                                                         |-----------------> Print reporter
-
+</pre>
 Now, source code dependencies need to ensure that changes to one of responsibilities do not change cause in the other. New organization should ensure that the behavior can be extended without modification. This is accomplished by partitioning the processes into classes and separating those classes into components.
 
 Following is component level Architecture
@@ -76,7 +76,7 @@ Consider a taxi aggregator which dispatches many taxi services. Now each company
 | URI             |   Dispatch format |
 |---------------|:----------------------|
 |Acme.com   | /pickupAddress/%s/pickupTime/%s/dest/%s |
-| *.*              | /pickupAddress/%s/pickupTime/%s/destination/%s |
+| \*.\*              | /pickupAddress/%s/pickupTime/%s/destination/%s |
 
 
 Due to unsubstitutabilty of interfaces a complex mechanism has to be put in place.
