@@ -10,9 +10,10 @@ Minimize the human resources required to build and maintain the required systems
 
 ## Case study
 Real data from a company
-* Growth of engineering staff - 15 - 1200 in 8 years
-* Productivity - 3000 lines of code to 7000 lines of code with no change in last 4 years
-* Cost per line of code - $10 - $400  in 8 years
+- Growth of engineering staff - 15 - 1200 in 8 years
+- Productivity - 3000 lines of code to 7000 lines of code with no change in last 4 years
+- Cost per line of code - $10 - $400  in 8 years
+
 These trends are unsustainable
 
 ## Signature of mess
@@ -20,7 +21,7 @@ Productivity bottoms asymptotically approaching zero. This is despite everyone w
 **Executive View -** One hopes that revenue will outpace costs justifying the expense. Initial few thousand dollars per month bought lots of functionality, final $20 million bought almost nothing. **Action -** stamp their feet and rage at developers.
 
 Clean well designed code matters. We can clean it up later is a **lie**. You have got a horde of competitors on your tail, and you have to stay ahead of them by running as fast as you can. So, developers never switch mode. Mess builds and productivity continues its asymptotic approach towards zero. Biggest lie is writing messy code makes them go fast in short term and just slows them down in long term. Fact is making messes is always slower than staying clean. Reference to Experiment by Jason Gorman. TDD code writing was 10% faster in different experiment than without TDD in worst case.
-_The only way to go fast, is to go well._
+>The only way to go fast, is to go well.
 
 Developers may think that the answer is to start over from scratch and redesign the whole system. The reality is less rosy. The overconfidence will drive the redesign into the same mess as the original project.
 
@@ -44,7 +45,8 @@ Behavior is urgent while architecture is important. In order of priorities
 1. urgent and important
 2. not urgent and important
 3. Urgent and not important
-4. Not urgent and not important<br>
+4. Not urgent and not important
+
 The mistake is managers and developers often make is to elevate items in position 3 to position 1. Dilemma of software developers is business managers are not well equipped to evaluate the importance of architecture. Responsibility of software development team to assert the importance of architecture over the urgency of features.
 
 ## Fight for architecture

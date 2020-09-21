@@ -5,7 +5,8 @@ Paradigms are ways of programming. This is unrelated to language itself. There a
 Three paradigms are:-
 - Structured Programming - imposes discipline on direct transfer of control
 - Object - Oriented Programming - imposes discipline on indirect transfer of control
-- Functional Programming - imposes discipline on assignment<br>
+- Functional Programming - imposes discipline on assignment
+
 Each paradigm removes capabilities from the programmer. Paradigm tell us what not to do, more than they tell us what to do. These paradigms align with the three big concerns of architecture: functions, separation of components, and data management.
 
 # Chapter 4:- Structured Programming
@@ -30,14 +31,16 @@ Nygaard moved the function call stack frame to the heap and invented OO.  Common
 - OO made masquerading of data structure significantly more convenient
 ## Polymorphism
 Consider getchar() function of C. Unix Os required every IO device to provide standard functions:- open, close, read, write and seek and FILE data structure contains pointers to these functions. The IO driver will define those functions and load up a FILE data structure with addresses. So, when a getchar() is called it simply calls function pointed to by the read pointer of the FILE data structure pointed to by STDIN.  In C++ every virtual function within class has a pointer in a table called a vtable and calls to virtual functions go through that table. Constructors and derivatives simply load their version of those functions into vtable of the object being created.
-_Polymorphism is application of pointers to functions._
+>Polymorphism is application of pointers to functions.
+
 The problem with explicitly using pointers to functions are dangerous. These are driven by manual conventions of initialization, calling etc. Any resulting bug is hard to track down and eliminate. OO removes these conventions and therefore these dangers. OO makes polymorphism trivial.
-_OO imposes discipline on indirect transfer of control._
+>OO imposes discipline on indirect transfer of control.
+
 ## Power of Polymorphism
 Consider copy programs associated with IO devices. All IO devices have become plugins to the copy program. We learnt in 1950s that our programs should be device independent. Most programmers did not extend the idea to their own programs because using pointers to functions was dangerous. OO allows the plugin architecture to be used anywhere for anything.
 ## Dependency inversion
 Without Polymorphism, source code dependencies followed the flow of control. High level functions needed to mention module that continued the callee. With interface we achieve dependency inversion. In OO any source code dependency can be inverted. A software architect can rearrange the source code dependencies of your system so that database and the UI depend on business rules rather other way round. Source code of business rules never mention UI or the database. When source code in a component change only that component needs to be redeployed. This is **independent deployability.** This also leads to **independent developability.**
-_OO is ability through the use of polymorphism to gain absolute control over every source code dependency in the system._
+>OO is ability through the use of polymorphism to gain absolute control over every source code dependency in the system.
 
 # Chapter 6:- Functional Programming   
 Variables in functional languages do not vary. All race conditions, deadlock conditions and concurrent update problems are due to mutable variables. No race condition can occur if no variable is updated. You can't have deadlocks without mutable locks.
@@ -45,7 +48,8 @@ Variables in functional languages do not vary. All race conditions, deadlock con
 Segregate the application into mutable and immutable components. The immutable components perform their tasks in purely functional way without using any mutable variables. Transactional memory is required for mutable variables. It protects those variables with a transaction or retry-based scheme.Well structured applications will be segregated into those components that do not mutate variables than that do. Architects then push as much processing into the immutable components and drive as much code as possible out of those components that must allow mutation.
 ## Event sourcing
 Consider we need a banking application where we need balances of customer when deposit and withdrawal takes place(mutable component). If only transactions are stored no mutable variables will be required.
-_Event sourcing is a strategy wherein we store the transaction but not the state. When state is required, simply apply all the transactions_
+>Event sourcing is a strategy wherein we store the transaction but not the state. When state is required, simply apply all the transactions
+
 Shortcuts are possible. Save the state at particular frequency(midnight for bank balance). We need to execute transactions since midnight. Nothing ever get deleted or updated. Thus there is no concurrent update issue. This is way source code control system works.
 ## Conclusion
 Structured --> discipline on direct transfer, OO--> discipline on indirect transfer, Functional --> discipline on variable assignment<br>

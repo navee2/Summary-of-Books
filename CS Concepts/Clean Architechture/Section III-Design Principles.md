@@ -4,16 +4,20 @@ The SOLID principles tell us how to arrange our functions and data structures in
 - basis of components that can be used in many software systems
 
 # Chapter 7:- SRP: The Single Responsibility Principle
-_A module should have one and only one reason to change._
+>A module should have one and only one reason to change.
+
 It should not be a module should do just one thing(which is basically function). From a stakeholder perspective it translates to<br>
-_A module should be responsible to one and only one actor(people who require change)._<br>
+>A module should be responsible to one and only one actor(people who require change).
+
 What is a module? - Simply a file(for java kind of langulage). Cohesive set of functions and data structures. Following are symptoms of violating it.
 ## Symptom 1: Accidental Duplication
 Consider class Employee with 3 methods:-
 - calculatePay() - used by accounting department
 - reportHours() - used by HR
 - save() - used by database admins
+
 Now suppose calculatePay ----> regularHours <-----reportHours
+
 Now finance team wants change in non-overtime hours calculations which HR doesn't want. Developer changes reportHours and is validated by Finance team. Now this will cause HR millions of dollars before figuring what happened. SRP says to separate the code that different actors depend on.
 
 ## Symptom 2: Merges
