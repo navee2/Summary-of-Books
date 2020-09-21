@@ -41,8 +41,8 @@ SRP is about functions and classes. At component level it becomes Common closure
 
 Consider a system that displays a financial summary on a web page. The data on the page is scrollable and negative numbers are rendered in red. Now there is new requirement that same information be turned into a report to be printed on a black and white printer. Negative numbers are now surrounded by parenthesis.
 By applying SRP we get following data flow:-
-financial data -----> financial analyzer ----> Financial Report Data----> web reporter
 
+financial data -----> financial analyzer ----> Financial Report Data----> web reporter<br>
                                                                                         |-----------------> Print reporter
 
 Now, source code dependencies need to ensure that changes to one of responsibilities do not change cause in the other. New organization should ensure that the behavior can be extended without modification. This is accomplished by partitioning the processes into classes and separating those classes into components.
@@ -71,8 +71,47 @@ Any subtype of usage of interface should not change behavior of higher applicati
     assert(r.area() == 10); # square would fail it
 
 ## Example LSP violation
+Consider a taxi aggregator which dispatches many taxi services. Now each company much conform to same REST interface. Now suppose there is a powerful taxi company which doesn't want to conform to your REST interface but provides its own interface. Simplest way to accomplish this goas would be to add an if. It would lead to mysterious errors and security breaches. Any future such incidence would force another if statement. This would be avoided by a configuration database:-
+---
+URI      Dispatch format
+Acme.com  /pickupAddress/%s/pickupTime/%s/dest/%s
+_*.*              /pickupAddress/%s/pickupTime/%s/destination/%s
 
+Due to unsubstitutabilty of interfaces a complex mechanism has to be put in place.
 
-Image Source:-
+## Conclusion
+A simple violation of substitutability can cause a system's architecture to be polluted with a significant amount of extra mechanisms.
+
+# Chapter 10:- ISP:The Interface Segregation Principle
+In a statically types language consider a class whose three functions op1, op2 and op3 are used by three Users User1, User2 and User3. Dependence means change in op1 will lead to recompilation and redeployment of all three Users. In dynamically typed language like python, declarations don't exist in source code but inferred at runtime. Thus, there are no source code dependencies to force recompilation and redeployment. Dynamically types languages create systems that are more flexible and tightly coupled than statically typed language.
+
+Solution - Create separate interfaces for each user.
+ISP is a language issue rather than architecture issue. Depending on something that carries baggage that you don't need can cause you troubles that you didn't expect. This idea is later covered in "component cohesion"
+
+# Chapter 11: DIP: The Dependency Inversion Principle
+> Most flexible systems are those in which source code dependencies refer only to abstractions, not to concretions.
+
+Class like String is stable. we tolerate such concrete dependencies(stable background and OS and platform facilities). We avoid depending on **volatile** concrete elements of our system that we want to avoid depending on.
+## Stable abstractions
+Every change to abstract interface corresponds to a change to its concrete implementations but converse is not true. Thus, interfaces are less volatilte. Good software designers work hard to reduce the volatility of interfaces. DIP gives following coding practices:-
+- Don't refer to volatile concrete classes - Refer to abstract interfaces instead. This also puts severe constraints on creation of objects and generally enforces use of abstract factories.
+- Don't derive from volatile concrete classes - Inheritence is strongest, most regid of all source code relationships.
+- Don't override concrete functions - Rather make function abstract and create multiple implementations
+- Never mention name of anything concrete and volatile - basically the principle
+
+## Factories
+To comply, creation of volatile concrete objects requires special handling. Abstract Factory manages this undesirable dependency.
+
+![](media/dip.jpeg)
+
+The curved line is an architectural boundary separating abstract from concrete. Flow of control crosses the curved line in opposite direction of source code dependencies(dependency inversion). DIP violation can't be entirely removed but can be gathered into a small number if concrete components and kept separate from rest of the system.  Main usually violates DIP as it instantiates concrete implementation.
+
+DIP is most visible organizing principle in architecture diagrams. It will become a new rule for architecture boundary call dependency rule.
+ 
+#Appendix
+- Dynamically vs statically types language- Statically typed programming languages do type checking at compile-time as opposed to run-time.
+
+#Image Source:-
 1. component design https://ivohasablog.com/2018/03/25/solid-solutions/
-1. class design:- https://usermanual.wiki/Document/2017Clean20Architecture20A20Craftsmans20Guide20to2020Robert20C20Martin.1831389213/html
+1. class design https://usermanual.wiki/Document/2017Clean20Architecture20A20Craftsmans20Guide20to2020Robert20C20Martin.1831389213/html
+1. abstract factory https://blog.heron.me/design-principles-b90e8a81a713
